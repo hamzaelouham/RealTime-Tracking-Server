@@ -7,6 +7,7 @@ export default {
   port: process.env.PORT,
   host: process.env.HOST || "localhost",
   database_uri: process.env.DATABASE_URI,
-  firebase_secret: require("./admin.json"),
-  // process.env.FIREBASE_SECRET ||
+  firebase_secret:
+    require("./admin.json") ||
+    JSON.parse(process.env.FIREBASE_SECRET as string),
 };
